@@ -44,15 +44,9 @@ export function ChatProvider({ children }) {
             return;
           }
         }
-        let imageUrl = null;
+        let imageUrl = profile?.avatar_url ?? null;
 
-        if (profile?.avatar_url) {
-          const { data } = supabase.storage
-            .from("avatars")
-            .getPublicUrl(profile.avatar_url);
-          imageUrl = data?.publicUrl ?? null;
-        }
-        console.log(imageUrl);
+        console.log("image", imageUrl);
 
         await client.connectUser(
           {
