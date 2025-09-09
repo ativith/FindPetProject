@@ -13,9 +13,9 @@
 ## 🎬 Demo / Screenshot
 | Home Screen | Alert Screen | Chat Screen |
 |------------|--------------|------------|
-| ![Home](./assets/home.png) | ![Alert](./assets/alert.png) | ![Chat](./assets/chat.png) |
+| ![Home](./assets/home.jpg) | ![Radar](./assets/radar.jpg) | ![Chat](./assets/chat.png) |
 
-
+![Demo](./assets/playapp.gif)
 
 ---
 
