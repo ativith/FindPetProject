@@ -33,8 +33,16 @@ export function ChatProvider({ children }) {
       try {
         // ถ้าเชื่อมแล้ว ไม่ต้อง connect อีก
         if (client.user?.id === profile.id) {
-          setIsReady(true);
-          return;
+          // ตรวจสอบว่าข้อมูลเก่าตรงกับปัจจุบัน
+          if (
+            client.user.name !== profile.username ||
+            client.user.image !== imageUrl
+          ) {
+            await client.disconnectUser();
+          } else {
+            setIsReady(true);
+            return;
+          }
         }
         let imageUrl = null;
 
@@ -44,11 +52,12 @@ export function ChatProvider({ children }) {
             .getPublicUrl(profile.avatar_url);
           imageUrl = data?.publicUrl ?? null;
         }
+        console.log(imageUrl);
 
         await client.connectUser(
           {
             id: profile.id,
-            name: profile.full_name,
+            name: profile.username,
             image: imageUrl,
           },
           tokenProvider
@@ -70,7 +79,7 @@ export function ChatProvider({ children }) {
       }
       setIsReady(false);
     };
-  }, [profile?.id, session?.user]);
+  }, [profile, session?.user]);
 
   // กรณียังไม่ได้ล็อกอิน → render children เลย (Auth จะทำงาน)
   if (!session?.user) {

@@ -85,7 +85,6 @@ function AddNewPost() {
     if (
       !image ||
       !typeOfPost ||
-      !name ||
       !type ||
       !species ||
       !selectedColors ||
@@ -99,7 +98,7 @@ function AddNewPost() {
       return;
     }
     if (typeOfPost === "findpet") {
-      if (!age || !reward || !highlight || !dateLost) {
+      if (!age || !reward || !highlight || !dateLost || !name) {
         Alert.alert("กรุณากรอกข้อมูลให้ครบถ้วนสำหรับโพสต์ตามหาสัตว์หาย");
         return;
       }
@@ -198,12 +197,7 @@ function AddNewPost() {
             placeholder="ประเภทของโพสต์"
             zIndex={3000}
           />
-          <Input
-            value={name}
-            placeholder="ระบุชื่อสัตว์"
-            label="ชื่อสัตว์เลี้ยง"
-            updateValue={(text) => setName(text)}
-          />
+
           <Text>ประเภทของสัตว์</Text>
           <CustomDropdown
             value={type}
@@ -232,6 +226,12 @@ function AddNewPost() {
           />
           {typeOfPost === "findpet" && (
             <>
+              <Input
+                value={name}
+                placeholder="ระบุชื่อสัตว์"
+                label="ชื่อสัตว์เลี้ยง"
+                updateValue={(text) => setName(text)}
+              />
               <Input
                 value={age}
                 placeholder="2ปี"
@@ -270,14 +270,14 @@ function AddNewPost() {
           <Input
             value={details}
             placeholder=""
-            label="รายละเอียดการหาย"
+            label="รายละเอียดการหาย,รายละเอียดอื่นๆ"
             updateValue={(text) => setDetails(text)}
           />
 
           <Input
             value={location}
             placeholder=""
-            label="สถานที่หาย"
+            label="สถานที่หาย,สถานที่พบ"
             updateValue={(text) => setLocation(text)}
           />
         </View>

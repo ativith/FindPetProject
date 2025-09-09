@@ -20,17 +20,18 @@ function PostItem({ id, user_id, image_url, name, species, reward, location }) {
       .from("profiles")
       .select("username,last_name,avatar_url")
       .eq("id", user_id)
-      .single();
+      .maybeSingle();
+
     if (error) throw new Error(error.message);
     return data;
   };
   const { data, error, isLoading } = useQuery({
-    queryKey: ["user", id],
+    queryKey: ["user", user_id],
     queryFn: () => fecthUser(),
   });
 
   return (
-    <ScrollView>
+    <View>
       <Pressable
         style={({ pressed }) => [
           styles.container,
@@ -65,7 +66,7 @@ function PostItem({ id, user_id, image_url, name, species, reward, location }) {
             <>
               <Text style={styles.byText}>โพสต์โดย:</Text>
               <Image
-                source={{ uri: data.avatar_url }}
+                source={{ uri: data?.avatar_url }}
                 style={{
                   width: 20,
                   height: 20,
@@ -75,14 +76,14 @@ function PostItem({ id, user_id, image_url, name, species, reward, location }) {
                 }}
               />
 
-              <Text style={styles.username}>{data.username}</Text>
+              <Text style={styles.username}>{data?.username}</Text>
             </>
           )}
         </View>
 
         <View style={styles.divider} />
       </Pressable>
-    </ScrollView>
+    </View>
   );
 }
 

@@ -125,6 +125,7 @@ export default function App() {
         />
 
         <Stack.Screen name="detailOfPost" component={DetailOfPost} />
+        <Stack.Screen name="ChatDetail" component={ChatDetailScreen} />
       </Stack.Navigator>
     );
   }
@@ -138,6 +139,7 @@ export default function App() {
         />
 
         <Stack.Screen name="detailOfPost" component={DetailOfPost} />
+        <Stack.Screen name="ChatDetail" component={ChatDetailScreen} />
       </Stack.Navigator>
     );
   }
@@ -195,7 +197,7 @@ export default function App() {
           }}
         />
         <Drawer.Screen
-          name="StupidPet"
+          name="FindPet"
           component={LostPetStack}
           options={({ route }) => {
             // ตรวจว่าหน้าปัจจุบันคือ detailOfPost หรือไม่
