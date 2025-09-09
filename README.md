@@ -1,6 +1,5 @@
 # FindPetProject
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
 ![Platform](https://img.shields.io/badge/platform-ReactNative%20%7C%20Expo-lightgrey)
 
 ---
@@ -16,7 +15,7 @@
 |------------|--------------|------------|
 | ![Home](./assets/home.png) | ![Alert](./assets/alert.png) | ![Chat](./assets/chat.png) |
 
-*สามารถเปลี่ยนเป็น GIF แสดงการใช้งานจริงของแอปได้*
+
 
 ---
 
@@ -35,14 +34,7 @@
 | Frontend | React Native (Expo) |
 | Realtime & Chat | Stream Chat |
 | Backend & Database | Supabase |
-| Push Notification | Expo Push Notifications |
-| Environment Management | `.env` variables |
 
 ---
 
-## ⚙️ Installation
 
-1. Clone repository
-```bash
-git clone https://github.com/ativith/FindPetProject.git
-cd FindPetProject
