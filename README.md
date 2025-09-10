@@ -11,7 +11,7 @@
 ---
 
 ## 🎬 Demo / Screenshot
-| Home Screen | Alert Screen | Chat Screen |
+| Home Screen | Radar Screen | Chat Screen |
 |------------|--------------|------------|
 | ![Home](./assets/home.jpg) | ![Radar](./assets/radar.jpg) | ![Chat](./assets/chat.jpg) |
 
